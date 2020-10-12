@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch JSON from API and map lat lon</title>
+</head>
+<body>
+    <h1>¿Where is the ISS?</h1>
+    <p>
+        Latitude: <span id="lat"></span><br>
+        Longitude: <span id="lon"></span>
+    </p>
+    <script>
+        const API_URL='https://api.wheretheiss.at/v1/satellites/25544';
+
+        async function getISS() {
+            const RESPONSE = await fetch(API_URL);
+            const DATA = await RESPONSE.json();
+            const {latitude, longitude} = DATA;
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lon').textContent =longitude;
+
+        }
+
+        getISS();
+    </script>
+</body>
+</html>
