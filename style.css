@@ -1,0 +1,5 @@
+/* Make sure the map container has a defined height, for example by setting it in CSS */
+#issMap {
+  height: 300px;
+  width: 1000px;
+}
